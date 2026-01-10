@@ -1,7 +1,7 @@
 #!/bin/sh
 
 PROBLEM=$1
-EXTENSION="c"
+EXTENSION="cc"
 
 while [ $# -gt 0 ]; do
   case $1 in
@@ -25,9 +25,9 @@ fi
 
 case $EXTENSION in
   "c")
-    gcc -Wall -Wextra -o "dist/$FILE" "$FILE/$FILE.c" -lm;;
+    gcc -Wall -Wextra -g -o "dist/$FILE" "$FILE/$FILE.c" -lm;;
   "cc")
-    g++ -Wall -Wextra -o "dist/$FILE" "$FILE/$FILE.cc" -lm;;
+    g++ -Wall -Wextra -g -o "dist/$FILE" "$FILE/$FILE.cc" -lm;;
 esac
 
 if [ $? -ne 0 ]; then
